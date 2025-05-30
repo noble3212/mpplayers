@@ -55,7 +55,12 @@ class MP4Player(QWidget):
         self.setLayout(layout)
 
     def open_file(self):
-        filename, _ = QFileDialog.getOpenFileName(self, "Open MP4 File", "", "MP4 Files (*.mp4)")
+        filename, _ = QFileDialog.getOpenFileName(
+            self,
+            "Open Video File",
+            "",
+            "Video Files (*.mp4 *.avi *.mov *.mkv *.flv *.wmv);;All Files (*)"
+        )
         if filename != '':
             self.file_label.setText(f"Loaded: {filename}")
             media = self.instance.media_new(filename)
